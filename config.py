@@ -13,14 +13,14 @@ SHORT_URL = os.environ.get('SHORT_URL', "gplinks.com")
 SHORT_API = os.environ.get('SHORT_API', "e07aec576df2a9ed36f1b94b8017cc53b792496f") 
 SHORT_TUT = os.environ.get('SHORT_TUT', "https://t.me/+dfEc0fVvm4s3NGY1")
 
-# Bot credentials (Variables থেকে মানগুলো নেওয়ার ব্যবস্থা করা হয়েছে)
+# Bot credentials
 SESSION = os.environ.get('SESSION', "")
 TOKEN = os.environ.get('TOKEN', "")
-API_ID = int(os.environ.get('API_ID', 37687219)) # আপনার API ID এখানে দিন
-API_HASH = os.environ.get('API_HASH', "d4d343d55bd3c3f645200c4c81be7867") # আপনার API HASH এখানে দিন
+API_ID = int(os.environ.get('API_ID', 37687219)) 
+API_HASH = os.environ.get('API_HASH', "d4d343d55bd3c3f645200c4c81be7867") 
 WORKERS = int(os.environ.get('WORKERS', 5))
 
-DB_URL = os.environ.get('DB_URL', "mongodb+srv://RupsaRoy:ram123@cluster0.msvefse.mongodb.net/?appName=Cluster0") # আপনার মঙ্গোডিবি ইউআরএল এখানে দিন
+DB_URL = os.environ.get('DB_URL', "mongodb+srv://RupsaRoy:ram123@cluster0.msvefse.mongodb.net/?appName=Cluster0") 
 DB_NAME = os.environ.get('DB_NAME', "Ram")
 
 FSUBS = [[-1003751570614, True, 10]] 
