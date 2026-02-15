@@ -1,44 +1,36 @@
 import logging
+import os
 from logging.handlers import RotatingFileHandler
 
 # Bot Configuration
 LOG_FILE_NAME = "bot.log"
-PORT = '5010'
-OWNER_ID = 6896698075
+PORT = os.environ.get('PORT', '5010')
+OWNER_ID = int(os.environ.get('OWNER_ID', 6896698075))
 
 MSG_EFFECT = 5046509860389126442
 
-SHORT_URL = "gplinks com" # shortner url 
-SHORT_API = "e07aec576df2a9ed36f1b94b8017cc53b792496f" 
-SHORT_TUT = "https://t.me/+dfEc0fVvm4s3NGY1"
+SHORT_URL = os.environ.get('SHORT_URL', "gplinks.com") 
+SHORT_API = os.environ.get('SHORT_API', "e07aec576df2a9ed36f1b94b8017cc53b792496f") 
+SHORT_TUT = os.environ.get('SHORT_TUT', "https://t.me/+dfEc0fVvm4s3NGY1")
 
-# Bot Configuration
-SESSION = ""
-TOKEN = ""
-API_ID = ""
-API_HASH = ""
-WORKERS = 5
+# Bot credentials (Variables থেকে মানগুলো নেওয়ার ব্যবস্থা করা হয়েছে)
+SESSION = os.environ.get('SESSION', "")
+TOKEN = os.environ.get('TOKEN', "")
+API_ID = int(os.environ.get('API_ID', 37687219)) # আপনার API ID এখানে দিন
+API_HASH = os.environ.get('API_HASH', "d4d343d55bd3c3f645200c4c81be7867") # আপনার API HASH এখানে দিন
+WORKERS = int(os.environ.get('WORKERS', 5))
 
-DB_URL = "mongodb"
-DB_NAME = "Ram"
+DB_URL = os.environ.get('DB_URL', "mongodb+srv://RupsaRoy:ram123@cluster0.msvefse.mongodb.net/?appName=Cluster0") # আপনার মঙ্গোডিবি ইউআরএল এখানে দিন
+DB_NAME = os.environ.get('DB_NAME', "Ram")
 
-FSUBS = [[-1003751570614, True, 10]] # Force Subscription Channels [channel_id, request_enabled, timer_in_minutes]
-# Database Channel (Primary)
-#DB_CHANNEL = -1003578999463   # just put channel id dont add ""
-# Multiple Database Channels (can be set via bot settings)
-# DB_CHANNELS = {
-#     "-1002595092736": {"name": "Primary DB", "is_primary": True, "is_active": True},
-#     "-1001234567890": {"name": "Secondary DB", "is_primary": False, "is_active": True}
-# }
-# Auto Delete Timer (seconds)
+FSUBS = [[-1003751570614, True, 10]] 
+DB_CHANNEL = int(os.environ.get('DB_CHANNEL', -1003578999463))
+
 AUTO_DEL = 300
-# Admin IDs
 ADMINS = [6896698075, 8229228616]
-# Bot Settings
 DISABLE_BTN = True
 PROTECT = True
 
-# Messages Configuration
 MESSAGES = {
     "START": "<b>›› ʜᴇʏ!!, {first} ~ <blockquote>ʟᴏᴠᴇ KATHA? ɪ ᴀᴍ ᴍᴀᴅᴇ ᴛᴏ ʜᴇʟᴘ ʏᴏᴜ ᴛᴏ ғɪɴᴅ ᴡʜᴀᴛ ʏᴏᴜ aʀᴇ ʟᴏᴏᴋɪɴɢ ꜰᴏʀ.</blockquote></b>",
     "FSUB": "<b><blockquote>›› ʜᴇʏ ×</blockquote>\n  ʏᴏᴜʀ ғɪʟᴇ ɪs ʀᴇᴀᴅʏ ‼️ ʟᴏᴏᴋs ʟɪᴋᴇ ʏᴏᴜ ʜᴀᴠᴇɴ'ᴛ sᴜʙsᴄʀɪʙᴇᴅ ᴛᴏ ᴏᴜʀ ᴄʜᴀɴɴᴇʟs ʏᴇᴛ, sᴜʙsᴄʀɪʙᴇ ɴᴏᴡ ᴛᴏ ɢᴇᴛ ʏᴏᴜʀ ғɪʟᴇs</b>",
@@ -64,5 +56,4 @@ def LOGGER(name: str, client_name: str) -> logging.Logger:
     logger.setLevel(logging.INFO)
     logger.addHandler(file_handler)
     logger.addHandler(stream_handler)
-
     return logger
